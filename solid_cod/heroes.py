@@ -1,7 +1,7 @@
-from abc import abstractmethod
+from weapon import Gun, Web, Laser
 
 
-class SuperHero:
+class SuperHero(Gun):
 
     def __init__(self, name: str):
         self.name = name
@@ -9,40 +9,29 @@ class SuperHero:
     def find(self, place):
         place.get_antagonist()
 
-    @abstractmethod
     def attack(self):
-        pass
+        self.fire_from_a_pistol()
 
-    @abstractmethod
     def ultimate(self):
-        pass
+        self.fire_from_a_gun()
 
 
-class Superman(SuperHero):
+class Superman(SuperHero, Laser):
 
     def __init__(self):
         super(Superman, self).__init__('Clark Kent')
 
-    def incinerate_with_lasers(self):
-        print('Wzzzuuuup!')
-
     def attack(self):
-        print('Kick')
+        self.powerful_blow()
 
     def ultimate(self):
         self.incinerate_with_lasers()
 
 
-class SpiderMan(SuperHero):
+class SpiderMan(SuperHero, Web):
 
     def __init__(self):
         super(SpiderMan, self).__init__('Spider-man')
-
-    def web_gun(self):
-        print('PIU PIU')
-
-    def web_bomb(self):
-        print('Bump')
 
     def attack(self):
         self.web_gun()
