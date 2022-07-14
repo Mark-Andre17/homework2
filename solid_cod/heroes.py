@@ -1,7 +1,7 @@
-from weapon import Gun, Web, Laser
+from weapon import Web, Laser
 
 
-class SuperHero(Gun):
+class SuperHero:
 
     def __init__(self, name: str):
         self.name = name
@@ -10,10 +10,10 @@ class SuperHero(Gun):
         place.get_antagonist()
 
     def attack(self):
-        self.fire_from_a_pistol()
+        return 'Kick'
 
     def ultimate(self):
-        self.fire_from_a_gun()
+        return 'Bum'
 
 
 class Superman(SuperHero, Laser):
